@@ -1,4 +1,5 @@
 from django.core.mail import send_mail
+from django.conf import settings
 from django.db.models import query
 from django.shortcuts import render,redirect,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -103,8 +104,8 @@ class LeadCreateView(OrganizorLoginRequiredMixin,generic.CreateView):
       send_mail(
          subject="创建了一个新的线索",
          message="请尽快去查看",
-         from_email="test@test.com",
-         recipient_list=['test1@test.com']
+         from_email=settings.DEFAULT_FROM_EMAIL,
+         recipient_list=[settings.ADMIN_EMAIL,]
       )
       return super(LeadCreateView,self).form_valid(form)
 

@@ -1,3 +1,21 @@
+销售线索管理系统视频课程源码
 
-.env_template中填写所需的邮件配置信息
-pip install -r requirements.txt安装所需的packages
+功能：
+销售主管通过注册功能注册；
+销售主管登录后可新建销售线索；
+新建销售线索后管理员会收到一封提醒邮件；
+销售主管可以新建代理（业务员），代理会收到一封提醒邮件；
+业务员可使用忘记密码功能初始化自己的密码；
+业务员初始化密码后可登陆系统，开始工作；
+业务员登录后可查看分配给自己的销售线索；
+销售主管可以查看自己的销售线索，并将未分配的线索分配给业务员
+销售主管可编辑线索
+
+
+源码下载使用：
+* 下载源码
+* 创建本地虚拟环境
+* .env_template中填写所需的邮件配置信息
+* pip install -r requirements.txt安装所需的packages
+* python manage.py migrate 初始化数据库
+* python manage.py runserver 系统启动

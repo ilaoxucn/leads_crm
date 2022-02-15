@@ -115,11 +115,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'leads.user' 
 
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
-EMAIL_HOST = os.environ.get('EMAIL_BACKEND')
-EMAIL_PORT = os.environ.get('EMAIL_BACKEND')
-EMAIL_HOST_USER = os.environ.get('EMAIL_BACKEND')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_BACKEND')
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_BACKEND')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')
 
 LOGIN_REDIRECT_URL="/leads/"
 LOGOUT_REDIRECT_URL="/"

@@ -1,5 +1,6 @@
 import random
 from django.core.mail import send_mail
+from django.conf import settings
 from django.views import generic
 from leads.models import Agent
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -27,12 +28,13 @@ class AgentCreateView(OrganizorLoginRequiredMixin,generic.CreateView):
         user.is_organizor = False
         user.is_agent = True
         user.save()
+        username = user.username
         Agent.objects.create(user=user,organization=self.request.user.userprofile)
         send_mail(
             subject="CRM 邀请邮件",
-            from_email='admin@test.com',
+            from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[user.email],
-            message="您已被邀请进入CRM系统，请及时登录并开始工作 "
+            message=f"您已被邀请进入CRM系统，请使用忘记密码功能初始化密码，并使用用户名{username}登录并开始工作."
         )
         return super(AgentCreateView,self).form_valid(form)
 
